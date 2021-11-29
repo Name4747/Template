@@ -1,0 +1,17 @@
+body {
+  margin: 10px;
+  font-size: 25px;
+  font-family: "courier", arial;
+  color: white;
+}
+
+div {
+  background-color: black;
+  width: 400px;
+  height: 100px;
+  margin: auto;
+  margin-top: 20px;
+  padding-top: 1px;
+  border-radius: 10px;
+  text-align: center;
+}
