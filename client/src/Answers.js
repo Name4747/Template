@@ -1,19 +1,28 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 const Answers = () => {
-    var a1 = {
-        content: "bmw",
-        score: 0,
-        used: false
-    }
+    
     var a2 = {
         content: "ford",
         score: 0,
         used: false
     }
 
+    const [a1,setA1] = useState(
+        {
+            content: "bmw",
+            score: 0,
+            used: false
+        }
+    )
+
     const getNextAnswer = () => {
-        a1.content = "fff";
+        const newAnswer = {
+            content: "fff",
+            score: 0,
+            used: false
+        }
+        setA1(newAnswer)
         console.log(a1.content)
     }
 
