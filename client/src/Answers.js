@@ -2,17 +2,7 @@ import React, {useState, useEffect} from 'react'
 
 const Answers = () => {
 
-    const [answerList,setAnswerList] = useState()
-
-    useEffect(() => {
-        fetch('/things')
-            .then(res => res.json())
-            .then(data => {
-                setAnswerList(data)
-            })
-    },[])
-
-    /*const answerList = [
+    const [answerList,setAnswerList] = useState([
         {
             id: 1,
             content: "bmw",
@@ -61,7 +51,15 @@ const Answers = () => {
             score: 0,
             used: false
         }
-    ]*/
+    ])
+
+    /*useEffect(() => {
+        fetch('/things')
+            .then(res => res.json())
+            .then(data => {
+                setAnswerList(data)
+            })
+    },[])*/
 
     const [a1,setA1] = useState(answerList[Math.floor(Math.random()*answerList.length)])
 
