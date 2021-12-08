@@ -24,3 +24,7 @@ div.answers:hover {
   border-width: 1px;
   font-weight: 500;
 }
+
+div.answers:active {
+  background-color: rgb(139, 139, 139);
+}
