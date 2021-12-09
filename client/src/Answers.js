@@ -68,12 +68,26 @@ const Answers = () => {
     function getNextAnswer(answer) {
 
         if(answer == a1) {
-            
-            setA2(answerList[Math.floor(Math.random()*answerList.length)])
+            answerList[a2.id-1].used = true
+            console.log(a2)
+            for (var i = 0; i < answerList.length; i++) {
+                const randomThing = answerList[Math.floor(Math.random()*answerList.length)]
+                if(randomThing.used == false) {
+                    setA2(randomThing)
+                    break;
+                }
+            }
         }
         else if(answer == a2) {
-            
-            setA1(answerList[Math.floor(Math.random()*answerList.length)])
+            answerList[a1.id-1].used = true
+            console.log(a1)
+            for (var i = 0; i < answerList.length; i++) {
+                const randomThing = answerList[Math.floor(Math.random()*answerList.length)]
+                if(randomThing.used == false) {
+                    setA1(randomThing)
+                    break;
+                }
+            }
         }
     }
 
