@@ -94,49 +94,69 @@ const Answers = () => {
 
     const [a1,setA1] = useState(answerList[Math.floor(Math.random()*answerList.length)])
 
-    const [a2,setA2] = useState()
-    
-    for (var i = 0; i < 100; i++) {
+    const [a2,setA2] = useState(answerList[Math.floor(Math.random()*answerList.length)])
+
+    for (var h = 0; h < 100; h++) {
         const randomBase = answerList[Math.floor(Math.random()*answerList.length)]
-        if(randomBase != a1) {
+        if(a2 == a1) {
             setA2(randomBase)
             break;
         }
     }
-
+    const [previousAnswer,setPreviousAnswer] = useState()
     function getNextAnswer(answer) {
-
         if(answer == a1) {
+            if (previousAnswer == a1) {
+                answerList[a1.id-1].score += 1
+            }
+            else {
+                answerList[a1.id-1].score = (answerList[a2.id-1].score += 1)
+            }
+            //answerList[a1.id-1].score += (answerList[a2.id-1].score += 1)
+
+            console.log(a1)
             answerList[a2.id-1].used = true
-            console.log(a2)
             var isA2Set = false;
             for (var i = 0; i < 100; i++) {
                 const randomThing = answerList[Math.floor(Math.random()*answerList.length)]
                 if(randomThing.used == false && randomThing != a1) {
                     setA2(randomThing)
                     isA2Set = true
+                    setPreviousAnswer(a1)
                     break;
                 }
             }
             if(!isA2Set) {
                 console.log("DONE!")
+                console.log(answerList)
             }
+            
         }
         else if(answer == a2) {
+            if (previousAnswer == a2) {
+                answerList[a2.id-1].score += 1
+            }
+            else {
+                answerList[a2.id-1].score = (answerList[a1.id-1].score += 1)
+            }
+            //answerList[a2.id-1].score += (answerList[a1.id-1].score += 1)
+
+            console.log(a2)
             answerList[a1.id-1].used = true
-            console.log(a1)
             var isA1Set = false;
             for (var j = 0; j < 100; j++) {
                 const randomThing = answerList[Math.floor(Math.random()*answerList.length)]
                 if(randomThing.used == false && randomThing != a2) {
                     setA1(randomThing)
                     isA1Set = true
+                    setPreviousAnswer(a2)
                     break;
                 }
                 
             }
             if(!isA1Set) {
                 console.log("DONE!")
+                console.log(answerList)
             }
         }
     }
