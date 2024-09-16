@@ -1,23 +1,23 @@
+import React from 'react'
 import './App.css';
-
-const c
+import Answers from './Answers';
 
 function App() {
+
   return (
     <div>
       <header>
         <div>
-  <span>What is better?</span>
+          <span>What is better?</span>
         </div>
-        <div>
 
-        </div>
-        <div>
+        <Answers/>
 
-        </div>
       </header>
     </div>
   );
+  
+
 }
 
 export default App;
